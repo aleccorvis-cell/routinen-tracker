@@ -80,11 +80,14 @@ button:hover {
     border-radius: 4px;
     padding: 15px;
     margin-bottom: 10px;
+    /* Flexbox für mobile Optimierung */
+    display: flex;
+    flex-direction: column;
 }
 
 .routine-details {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Stapelt die Details untereinander auf kleinen Bildschirmen */
     font-size: 14px;
     color: #555;
     margin-top: 5px;
@@ -92,21 +95,50 @@ button:hover {
 
 .routine-details span {
     flex: 1;
-    text-align: center;
+    text-align: left; /* Text wird linksbündig */
+    margin-bottom: 5px; /* Abstand zwischen den Details */
 }
 
-/* Anpassungen für kleinere Bildschirme */
-@media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-    main {
-        padding: 15px;
-    }
+.routine-progress {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.routine-actions {
+    display: flex;
+    flex-direction: column; /* Buttons werden untereinander angeordnet */
+    gap: 5px; /* Abstand zwischen den Buttons */
+    margin-top: 10px;
+}
+
+.routine-actions button {
+    width: 100%;
 }
 
 /* Styling für abgeschlossene Routinen */
 .routine-item.completed {
     background-color: #e0e0e0;
     opacity: 0.7;
+}
+
+/* Media Query für größere Bildschirme */
+@media (min-width: 768px) {
+    .routine-details {
+        flex-direction: row; /* Details nebeneinander auf großen Bildschirmen */
+        justify-content: space-between;
+    }
+    
+    .routine-details span {
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .routine-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .routine-actions button {
+        width: auto;
+    }
 }
