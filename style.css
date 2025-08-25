@@ -104,3 +104,9 @@ button:hover {
         padding: 15px;
     }
 }
+
+/* Styling für abgeschlossene Routinen */
+.routine-item.completed {
+    background-color: #e0e0e0;
+    opacity: 0.7;
+}
